@@ -29,7 +29,7 @@ class MainViewModel @Inject constructor(
         isProgressing.value = true
         launch {
             val result = counterUseCase.execute(entity)
-            // for compose progress indicator test
+            // for compose progressIndicator test
             delay(1500)
 
             isProgressing.value = false

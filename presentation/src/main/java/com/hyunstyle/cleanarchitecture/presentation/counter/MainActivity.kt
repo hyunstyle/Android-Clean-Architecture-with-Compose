@@ -39,11 +39,15 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : BaseActivity<MainViewModel>() {
 
+    /**
+     * injected viewModel by Hilt
+     */
     override val mViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Compose layout
         setContent {
             BaseTheme {
                 Column(
@@ -90,12 +94,17 @@ class MainActivity : BaseActivity<MainViewModel>() {
             },
             keyboardActions = KeyboardActions(
                 onDone = {
+                    // if you click keyboard's "DONE" button,
+                    // request api via viewModel
                     focusManager.clearFocus()
                     mViewModel.visit(CounterRequestEntity("test", text))
                 }
             )
         )
-        
+
+        /**
+         * request focus automatically
+         */
         DisposableEffect(Unit) {
             focusRequester.requestFocus()
             onDispose {  }
@@ -111,7 +120,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
         when(counterEntity.countValue) {
             init -> {
-
+                // do nothing first
             }
             else -> {
                 Text(
