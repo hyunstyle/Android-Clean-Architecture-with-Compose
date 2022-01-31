@@ -10,6 +10,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 
+/**
+ * Created by hyunstyle on 2022.02.01
+ * Copyright (c) 2022 All rights reserved.
+ */
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val counterUseCase: CounterUseCase

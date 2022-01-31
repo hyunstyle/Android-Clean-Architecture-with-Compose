@@ -11,6 +11,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.hyunstyle.cleanarchitecture.presentation.base.compose.Red300
 
+/**
+ * Created by hyunstyle on 2022.02.01
+ * Copyright (c) 2022 All rights reserved.
+ */
 abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     abstract val mViewModel: VM
